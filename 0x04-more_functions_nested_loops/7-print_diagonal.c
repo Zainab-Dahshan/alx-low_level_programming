@@ -2,24 +2,29 @@
 #include <stdio.h>
 
 /**
- * print_diagonal - prints `n` backslash characters,
- *			followed by a newline character.
- *
- * @n: number of backslashs to print.
+ * print_diagonal - draw a diagonal line
+ * @n: number of times the '\' char is printed
+ * Description: Can only use _putchar to print
  */
-
 void print_diagonal(int n)
 {
-	int i, j;
+	int c, i;
 
-	for (i = 0; i < n; i++)
+	c = 0;
+
+	while (n > 0)
 	{
-		for (j = 0; j < i; j++)
+		i = c;
+		while (i > 0)
 		{
-			printf(" ");
+			_putchar(' ');
+			i--;
 		}
-
-		printf("\\");
-		printf("\n");
+		_putchar('\\');
+		_putchar('\n');
+		c++;
+		n--;
 	}
+	if (c < 1)
+		_putchar('\n');
 }
