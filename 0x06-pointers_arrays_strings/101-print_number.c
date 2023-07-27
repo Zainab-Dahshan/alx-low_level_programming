@@ -13,29 +13,10 @@ void print_number(int n)
 		n = -n;
 	}
 
-	int numDigits = 0;
-	int temp = n;
-
-	while (temp != 0)
+	if (n / 10)
 	{
-		temp /= 10;
-		numDigits++;
+		print_number(n / 10);
 	}
 
-	while (numDigits > 0)
-	{
-		int divisor = 1;
-
-		for (int i = 1; i < numDigits; i++)
-		{
-			divisor *= 10;
-		}
-
-		int digit = n / divisor;
-
-		_putchar(digit + '0');
-
-		n %= divisor;
-		numDigits--;
-	}
+	_putchar(n % 10 + '0');
 }
