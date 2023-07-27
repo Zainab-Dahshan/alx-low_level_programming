@@ -9,15 +9,12 @@
  * a flag capitalize_next to 1 to indicate that the next
  * character encountered will be the start of a new word
  * and should be capitalized.
- * string_toupper - Converts all lowercase letters in
- * a string to uppercase.
- * isalpha - Checks if the character is alphabetic
- *capitalize_next - Reset the flag if the current character is a separator
+ * isalpha: Checks if the character is alphabetic
+ *capitalize_next: Reset the flag if the current character is a separator
  * @str: A pointer to the null-terminated string to be converted.
  *
  * Return: return to the modified string @str.
  */
-
 char *cap_string(char *str)
 {
 	char *ptr = str;
