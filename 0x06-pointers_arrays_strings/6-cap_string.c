@@ -1,41 +1,36 @@
 #include "main.h"
-#include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
-
 /**
- * cap_string - This function takes a pointer to
- * a string as an argument and capitalizes the first
- * letter of each word in the string.
- * Description: The function works by iterating over
- * each character in the string and determining whether
- * it is a letter or not. If the character is a letter and
- * it is the first letter of a word, then it is capitalized.
- * @str: A pointer to the string to be capitalized.
- * Returns: A pointer to the modified string.
-*/
-char *cap_string(char *str)
+ * cap_string - capitalizes most of the words in a string.
+ * @s: analized string.
+ *
+ * Return: String with all words capitalized.
+ */
+char *cap_string(char *s)
 {
-	char *ptr = str;
-	int capitalize_next = 1;
+	int i, j;
+	int a[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-	while (*ptr != '\0')
+	i = 0;
+	while (*(s + i) != '\0')
 	{
-		if (isalpha(*ptr))
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			if (capitalize_next)
+			if (i == 0)
 			{
-				*ptr = toupper(*ptr);
-				capitalize_next = 0;
+				*(s + i) = *(s + i) - 32;
+			}
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+					{
+						*(s + i) = *(s + i) - 32;
+					}
+				}
 			}
 		}
-		else
-		{
-			capitalize_next = 1;
-		}
-
-		ptr++;
+	i++;
 	}
-
-	return (str);
+	return (s);
 }
