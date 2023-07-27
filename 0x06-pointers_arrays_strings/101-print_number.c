@@ -2,35 +2,21 @@
 #include <stdio.h>
 
 /**
- * print_number - prints an integer to the standard output using the _putchar
+ * print_number - Prints an integer.
  * @n: The integer to be printed.
  */
-
 void print_number(int n)
 {
-	if (n == 0)
-	{
-	_putchar('0');
-	return;
-	}
+	unsigned int num = n;
 
 	if (n < 0)
 	{
-	_putchar('-');
-	n = -n;
+		_putchar('-');
+		num = -num;
 	}
-  
-	int divisor = 1;
 
-	while (n / divisor > 9)
-	{
-	divisor *= 10;
-	}
-	while (divisor > 0)
-	{
-	int digit = n / divisor;
-	_putchar(digit + '0');
-	n %= divisor;
-	divisor /= 10;
-	}
+	if ((num / 10) > 0)
+		print_number(num / 10);
+
+	_putchar((num % 10) + '0');
 }
