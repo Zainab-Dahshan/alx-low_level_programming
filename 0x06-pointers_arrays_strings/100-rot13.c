@@ -7,22 +7,24 @@
  *
  * Return: String with all letters in ROT13 base.
  */
-char *rot13(char *str)
+char *rot13(char *s)
 {
-	char *ptr = str;
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i = 0;
+	int j;
 
-	while (*ptr != '\0')
+	while (*(s + i) != '\0')
 	{
-	if ((*ptr >= 'a' && *ptr <= 'm') || (*ptr >= 'A' && *ptr <= 'M'))
-	{
-	*ptr += 13;
+		for (j = 0; j <= 51; j++)
+		{
+			if (*(s + i) == a[j])
+			{
+				*(s + i) = rot[j];
+				break;
+			}
+		}
+		i++;
 	}
-	else if ((*ptr >= 'n' && *ptr <= 'z') || (*ptr >= 'N' && *ptr <= 'Z'))
-	{
-	*ptr -= 13;
-	}
-	ptr++;
-	}
-
-	return (str);
+	return (s);
 }
