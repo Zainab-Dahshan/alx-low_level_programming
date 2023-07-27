@@ -1,44 +1,28 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - entry point.
- * leet - checks whether the current character pointed
- * to by ptr is one of the letters in letters
- * Description: two loops used the first iterates over each
- * character in the str, and the second checks if the char
- * matches any letter to be replaced. The replacement
- * characters and the corresponding letters stored in
- * separate arrays. Inside the second loop, if a match is found,
- * the character replaces at the current position with
- * the corresponding replacement character and break the loop.
- * This ensures that only one replacement is made for each character
- * in the string. Converts all lowercase letters in a string to uppercase.
+ * leet - change vowels to numbers.
+ * @s: analized string.
  *
- *
- * @str: A pointer to the null-terminated string to be converted.
- *
- * Return: return to the modified string @str.
+ * Return: String with all vowels changed.
  */
-char *leet(char *str)
+char *leet(char *s)
 {
-	char *ptr = str;
-	char replacements[] = {'4', '3', '0', '7', '1'};
-	char letters[] = {'a', 'e', 'o', 't', 'l', 'A', 'E', 'O', 'T', 'L'};
-	int i;
+	char a[] = "aeotlAEOTL";
+	char n[] = "4307143071";
+	int i = 0;
+	int j;
 
-	while (*ptr != '\0')
+	while (*(s + i) != '\0')
 	{
-		for (i = 0; i < 5; i++)
+		for (j = 0; j <= 9; j++)
 		{
-			if (*ptr == letters[i] || *ptr == letters[i + 5])
+			if (*(s + i) == a[j])
 			{
-				*ptr = replacements[i];
-				break;
+				*(s + i) = n[j];
 			}
 		}
-		ptr++;
+		i++;
 	}
-
-	return (str);
+	return (s);
 }
