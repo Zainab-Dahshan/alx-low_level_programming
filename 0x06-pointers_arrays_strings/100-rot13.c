@@ -2,17 +2,10 @@
 #include <stdio.h>
 
 /**
- * rot13 - checks whether the current character
- * pointed to by ptr is in the range of 'a' to 'm' or 'A' to 'M'.
- * Description: The function takes a pointer to a string as input
- * and initializes a pointer ptr to point to the start of
- * the input string str. It also includes a loop that
- * continues until the end of the string is reached,
- * as indicated by the null terminator character '\0'.
+ * rot13 - change letters to ROT13.
+ * @s: analized string.
  *
- * @str: A pointer to the null-terminated string to be converted.
- *
- * Return: return to the modified input string @str.
+ * Return: String with all letters in ROT13 base.
  */
 char *rot13(char *str)
 {
