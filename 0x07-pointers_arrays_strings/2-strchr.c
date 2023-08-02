@@ -2,23 +2,26 @@
 #include <stdio.h>
 
 /**
- * _strchr - to locate the memory area with two parameters.
- * @s: the string.
- * @c: the character.
+ * _strchr - prints from the first occurrence of a char.
+ * @s: source string
+ * @c: tested char
  *
- * Return: returns a pointer to the first occurrence of c in
- *	the string. If not found, it returns NULL
+ * Return: new string.
  */
-
 char *_strchr(char *s, char c)
 {
 	while (*s != '\0')
 	{
+		if (*s == c)
+		{
+			return (s);
+
+		}
+		else
+			s++;
+	}
 	if (*s == c)
-	{
-	return (s);
-	}
-	s++;
-	}
-	return (NULL);
+		return (s);
+	else
+		return (0);
 }
