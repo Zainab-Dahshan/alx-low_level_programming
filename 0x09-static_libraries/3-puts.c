@@ -1,19 +1,23 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _puts - main function
- *
- * @str: The string
- *
+ * _puts - Prints a string to stdout, followed by a new line.
+ * Given a null-terminated character array, this function prints each
+ * character in the array to stdout using the putchar() function. Once
+ * all characters have been printed, a new line character is printed
+ * to move the cursor to the next line.
+ * @str: Pointer to the character array to print.
  */
 
 void _puts(char *str)
 {
-	int a;
+	int i = 0;
 
-	for (a = 0; str[a] != '\0'; a++)
+	while (str[i] != '\0')
 	{
-		_putchar(str[a]);
+	putchar(str[i]);
+	i++;
 	}
-	_putchar('\n');
+	putchar('\n');
 }

@@ -1,52 +1,29 @@
 #include "main.h"
-
-#include <limits.h>
+#include <stdio.h>
 
 /**
- * _atoi - Convert a string to an integer
- * @s: Pointer to the string to convert
+ * _atoi - converts a string to an integer
+ * @s: string to convert
  *
- * Return: The integer that was converted
+ * Return: value of integer
  */
 int _atoi(char *s)
 {
-	int i, start, negative;
-	unsigned int number;
+	int i, j, n, m;
 
-	start = -1;
-	negative = 0;
-	number = 0;
-	for (i = 0; s[i] != '\0'; i++)
+	i = n = 0;
+	m = 1;
+	while ((*(s + i) < '0' || *(s + i) > '9') && (*(s + i) != '\0'))
 	{
-		if (s[i] >= '0' && s[i] <= '9')
-			start = i;
-
-		if (s[i] == '-' && start == -1)
-		{
-			if (negative)
-				negative = 0;
-			else
-				negative = 1;
-		}
+		if (*(s + i) == '-')
+			m *= -1;
+		i++;
 	}
-
-	if (start != -1)
+	j = i;
+	while ((*(s + j) >= '0') && (*(s + j) <= '9'))
 	{
-		for (i = 0; s[i] != '\0'; i++)
-		{
-			if (s[i] >= '0' && s[i] <= '9')
-				number = number * 10 + s[i] - '0';
-			else if (s[i - 1] >= '0' && s[i - 1] <= '9')
-				break;
-		}
+		n = n * 10 + m * (*(s + j) - '0');
+		j++;
 	}
-
-	if ((number >= (unsigned int) INT_MAX && negative == 0))
-		return (INT_MAX);
-	else if ((number > (unsigned int) INT_MAX && negative))
-		return (INT_MIN);
-	else if (negative)
-		return ((int) -number);
-	else
-		return ((int) number);
+	return (n);
 }

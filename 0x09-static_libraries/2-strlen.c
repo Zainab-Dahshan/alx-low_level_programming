@@ -1,18 +1,26 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _strlen - This function is equal to strlen
+ * _strlen - Computes the length of a string.
  *
- * @s: this is my entry
+ * Given a pointer to a null-terminated character array, this function
+ * iterates over the array and counts the number of characters until
+ * the null terminator is reached. The resulting count is returned as
+ * an integer.
  *
- * Return: the las character
+ * @s: Pointer to the character array.
+ *
+ * Return: The length of the string.
  */
 int _strlen(char *s)
 {
-	int a;
+	int len = 0;
 
-	for (a = 0; s[a] != '\0' ; a++)
+	while (*s != '\0')
 	{
+	len++;
+	s++;
 	}
-	return (a);
+	return (len);
 }
