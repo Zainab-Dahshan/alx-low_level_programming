@@ -21,34 +21,32 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int s1_length, s2_length, concat_length;
+	unsigned int s1_len = 0, s2_len = 0, i = 0;
 	char *result;
 
 	if (s1 == NULL)
-	{
-		s1 = "";
-	}
-
+	s1 = "";
 	if (s2 == NULL)
-	{
-		s2 = "";
-	}
+	s2 = "";
 
-	s1_length = strlen(s1);
-	s2_length = strlen(s2);
-	concat_length = s1_length + (n >= s2_length ? s2_length : n) + 1;
+	while (s1[s1_len] != '\0')
+	s1_len++;
+	while (s2[s2_len] != '\0')
+	s2_len++;
 
-	result = malloc(concat_length);
+	if (n >= s2_len)
+	n = s2_len;
+
+	result = malloc(sizeof(char) * (s1_len + n + 1));
 
 	if (result == NULL)
-	{
-		return (NULL);
-	}
+	return (NULL);
 
-	strncpy(result, s1, s1_length);
-	strncat(result + s1_length, s2, concat_length - s1_length);
-
-	result[concat_length - 1] = '\0';
+	for (i = 0; i < s1_len; i++)
+	result[i] = s1[i];
+	for (i = 0; i < n; i++)
+	result[s1_len + i] = s2[i];
+	result[s1_len + n] = '\0';
 
 	return (result);
 }
