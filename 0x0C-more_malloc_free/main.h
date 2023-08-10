@@ -1,5 +1,5 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef MAIN_H
+#define MAIN_H
 
 char *_memcpy(char *dest, char *src, unsigned int n);
 void *malloc_checked(unsigned int b);
@@ -8,6 +8,9 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int _putchar(char c);
-int main(int argc, char *argv[])
+int main(int argc, char *argv[]);
+size_t _strlen(const char *s);
+int _atoi(const char *s);
+void print_number(int n);
  
 #endif
