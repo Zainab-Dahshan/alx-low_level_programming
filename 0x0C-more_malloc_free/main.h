@@ -1,5 +1,5 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef MAIN_H
+#define MAIN_H
 
 char *_memcpy(char *dest, char *src, unsigned int n);
 void *malloc_checked(unsigned int b);
