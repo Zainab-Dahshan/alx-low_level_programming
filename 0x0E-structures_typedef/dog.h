@@ -8,11 +8,11 @@
  * @owner: owner`s dog
  * Description: Just a lone a dog struct in abig kitty world.
  */
-struct dog
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 #endif
