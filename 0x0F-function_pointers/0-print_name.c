@@ -2,24 +2,34 @@
 
 /**
  * print_name - main function
- * Description: the function prints a name
- * by calling a callback function with a message string.
+ * Decritption: the function Calls a callback
+ * function with a name argument, after
+ * checking for invalid input.
  *
- * @name: The name to print.
- * @f: The callback function to call with the message string.
- * The function should take a char pointer as an argument and
- * return nothing.
+ * @name: The name to pass to
+ * the callback function.
+ * @f: The callback function to call
+ * with the name argument.
+ * The function should take a char pointer
+ * as an argument and return nothing.
  */
 void print_name(char *name, void (*f)(char *))
 {
-	char *message = (char *) malloc(sizeof(char) * (strlen(name) + 8));
-
-	if (message == NULL)
+	if (name == NULL || f == NULL)
 	{
-		exit(1);
+		printf("Invalid input\n");
+		return;
 	}
-	strcpy(message, "Hello, ");
-	strcat(message, name);
-	f(message);
-	free(message);
+
+	f(name);
+}
+
+/**
+ * print_name_default - Prints a name with a default message.
+ *
+ * @name: The name to print.
+ */
+void print_name_default(char *name)
+{
+	printf("Name: %s\n", name);
 }
