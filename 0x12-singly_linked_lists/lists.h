@@ -20,6 +20,22 @@ typedef struct list_s
     struct list_s *next;
 } list_t;
 
+/**
+ * struct Node - A node in a singly linked list
+ *
+ * @data: The data stored in the node
+ * @next: A pointer to the next node in the list
+ *
+ * Description: This struct defines a node in a singly linked list. Each node contains
+ * some data and a pointer to the next node in the list. The `data` field can be of any
+ * data type, while the `next` field is a pointer to another `Node` struct.
+ */
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+Node *createNode(int data)
 size_t print_list(const list_t *head);
 size_t list_len(const list_t *head);
 list_t *add_node(list_t **head, const char *str);
