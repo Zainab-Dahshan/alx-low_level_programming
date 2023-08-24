@@ -2,8 +2,9 @@
 #define MAIN_H
 
 #include <stddef.h>
-#include <stlib.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include <lists.h>
 
 /**
  * struct list_s - singly linked list
