@@ -1,21 +1,14 @@
-section .data
-    hello: db "Hello, Holberton", 0
-    format: db "%s\n", 0
-
+global  main
 section .text
-    global _start
+main:
+        mov     rax, 1
+        mov     rdi, 1
+        mov     rsi, message
+        mov     rdx, 17
+	syscall
 
-_start:
-    ; Prepare arguments for printf
-    mov rdi, format
-    mov rsi, hello
-    xor rax, rax  ; Clear RAX to indicate printf is a variable-argument function
-
-    ; Call printf
-    call printf
-
-    ; Exit program with status code 0
-    xor rdi, rdi
-    mov rax, 60  ; System call number for exit
-    syscall
-
+        mov     rax, 60
+        xor     rdi, rdi
+	syscall
+message:
+        db      "Hello, Holberton", 10
