@@ -1,10 +1,13 @@
 #include "main.h"
 
 /**
- * open_file - opens a file and performs error checking
- * @filename: the name of the file to open
- * @mode: the mode to use when opening the file
- * Return: the file descriptor for the opened file, or -1 on error
+ * open_file - main function that opens a file
+ * and performs error checking
+ * @filename: Name of a file to open
+ * @mode: A mode to use when opening a file
+ * @perms: Permissions to set on a file
+ * Return: File descriptor for an opened file,
+ * otherwise -1 on error
  */
 int open_file(char *filename, int mode, mode_t perms)
 {
@@ -19,9 +22,10 @@ return (fd);
 }
 
 /**
- * copy_file - copies data from one file to another
- * @fd_from: the file descriptor for the source file
- * @fd_to: the file descriptor for the destination file
+ * copy_file - main function that copies
+ * data from one file to another
+ * @fd_from: File descriptor for source file
+ * @fd_to: File descriptor for destination file
  */
 void copy_file(int fd_from, int fd_to)
 {
@@ -45,8 +49,9 @@ exit(99);
 }
 
 /**
- * close_file - closes a file and performs error checking
- * @fd: the file descriptor to close
+ * close_file - main function that closes
+ * a file and performs error checking
+ * @fd: File descriptor to close
  */
 void close_file(int fd)
 {
@@ -83,6 +88,5 @@ copy_file(fd_from, fd_to);
 
 close_file(fd_from);
 close_file(fd_to);
-
 return (0);
 }
