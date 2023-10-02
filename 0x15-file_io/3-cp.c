@@ -1,4 +1,9 @@
-#include "main.h"
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define BUFFER_SIZE 1024
 
 /**
  * open_file - main function that opens a file
@@ -29,8 +34,8 @@ return (fd);
  */
 void copy_file(int fd_from, int fd_to)
 {
-ssize_t bytes_read, bytes_written;
-char buffer[BUFFER_SIZE];
+ssize_t bytes_read = 0, bytes_written = 0;
+char buffer[BUFFER_SIZE] = {0};
 
 do {
 bytes_read = read(fd_from, buffer, BUFFER_SIZE);
